@@ -1,0 +1,48 @@
+MixedDataAnalysis — How to Run
+==============================
+
+1. Open a terminal in the project root.
+
+2. Install dependencies:
+
+   python -m pip install -r requirements.txt
+
+3. Run all steps:
+
+   python run_pipeline.py
+
+4. Run only revised model steps:
+
+   python run_pipeline.py --from-step 5 --to-step 8
+
+5. Run selected steps:
+
+   python run_pipeline.py --steps 5 6 7 8
+
+6. Parallel settings:
+
+   --n-jobs controls Steps 04 and 05.
+   --recurrent-n-jobs controls Step 06. Use 1 for the safest deterministic run.
+
+   Example:
+   python run_pipeline.py --from-step 5 --to-step 8 --n-jobs 6 --recurrent-n-jobs 1
+
+7. Quick Step 04 code check:
+
+   python run_pipeline.py --steps 4 --quick-step04
+
+8. Main outputs:
+
+   outputs/reports/04_statistical_models_report.md
+   outputs/reports/05_tree_models_report.md
+   outputs/reports/06_recurrent_models_report.md
+   outputs/reports/07_model_comparison_report.md
+   outputs/reports/08_final_results_report.md
+   outputs/reports/08_selected_model_card.md
+
+9. Final result tables:
+
+   outputs/tables/07_model_comparison_metrics.csv
+   outputs/tables/07_bootstrap_differences_from_selected.csv
+   outputs/tables/08_primary_and_secondary_results.csv
+   outputs/tables/08_final_model_horizon_results.csv
